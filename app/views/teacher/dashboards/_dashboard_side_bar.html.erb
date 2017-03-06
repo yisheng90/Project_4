@@ -1,0 +1,28 @@
+<div class='ui four wide column'>
+  <div class='row'>
+    <div class='column'>
+      <h1><%= @teacher.name %></h1>
+      <p>Secondary</p>
+      <hr />
+      </div>
+  </div>
+
+    <div class='ui one column centered grid '>
+      <div class='row black'>
+      <div class='ui items'>
+        <div class='item'>
+          <%= link_to semantic_icon('user')+'Profile' , root_path %>
+        </div>
+        <div class='divider'></div>
+        <div class='item'>
+          <%= link_to semantic_icon('cubes')+'My Courses', teacher_courses_path %>
+        </div>
+        <div class='item'>
+          <%= link_to semantic_icon('add circle')+'Add Course', root_path %>
+        </div>
+        <div class='item'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

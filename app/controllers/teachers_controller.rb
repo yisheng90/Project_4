@@ -20,7 +20,6 @@ class TeachersController < ApplicationController
     @teacher.user_type = 'teacher'
     @teacher.grade = Grade.first
     @teacher.password = '1234567' if @teacher.password == nil
-
     if @teacher.save!
       ApplicationMailer.sample_email(@teacher).deliver
       flash[:success] = 'Created Teacher'
@@ -31,10 +30,6 @@ class TeachersController < ApplicationController
     end
   end
 
-
-  def dashboard
-    render component: 'TeacherDashboard', props: {teacher: @current_user, courses: @current_user.courses ,new_course_path: new_course_path(@course)}, tag:'span', class: 'user'
-  end
 
   private
 

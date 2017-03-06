@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   get 'students' => 'students#index'
   get 'students/new' => 'students#new'
   post 'students' => 'students#create'
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
 
 
   get 'admin_dashboard' => 'schools#show'
-  get 'my_dashboard' => 'teachers#dashboard'
 
 
   get 'login' => 'sessions#new'
@@ -22,11 +23,17 @@ Rails.application.routes.draw do
 delete 'logout' => 'sessions#destroy'
 
 
-  root 'courses#index'
+root 'courses#index'
 resources :users
 resources :teachers
-resources :courses, only: [:index, :show, :new, :create]
+resources :courses, only: [:index, :show]
 resources :videos
+
+namespace :teacher do
+  resource :dashboard, only: [:show]
+  resources :courses
+end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

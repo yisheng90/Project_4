@@ -1,4 +1,5 @@
-<div class='ui stackable grid'>
+<%= render partial: 'teacher/partials/dashboard_side_bar', locals: {teacher: @current_user} %>
+<div class='ui stackable twelve wide column grid'>
     <div class='cloumn'></div>
     <div class='one wide column'>
       <h1>Courses</h1>
@@ -9,7 +10,7 @@
       <div class='ui stackable fourteen wide column'>
 
       <% if @courses.size > 0 %>
-        <div class="ui stackable link cards five wide column centered align">
+        <div class="ui stackable link cards three wide column centered align">
           <% @courses.each do |course| %>
             <div class="card">
               <div class="image">
