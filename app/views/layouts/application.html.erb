@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project4</title>
+    <%= csrf_meta_tags %>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
+
+  </head>
+
+  <body>
+    <div class="ui top attached menu">
+      <div class='ui item icon left'>
+        <%= link_to 'School', root_path %>
+      </div>
+      <div class="ui right dropdown icon item">
+        <i class="wrench icon"></i>
+          <div class="menu">
+            <% if current_user %>
+              <%= render '/partials/logedin_menu' %>
+            <% else %>
+              <div class="item">
+                <%= link_to 'Login', login_path %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= yield %>
+
+    <script>
+    $(document).ready(function() {
+        $('.ui.dropdown')
+      .dropdown()
+    })
+      </script>
+  </body>
+</html>

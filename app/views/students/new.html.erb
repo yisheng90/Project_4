@@ -1,0 +1,27 @@
+<h1>Students#new</h1>
+<p>Find me in app/views/students/new.html.erb</p>
+
+
+
+<div class='ui grid three column'>
+  <div class='column'></div>
+  <div class='ui form column'>
+    <%= form_for @student, class:'loading', url:students_path(@student), html: { method: :post } do |f| %>
+      <div class="field">
+        <label>Name</label>
+        <%= f.text_field :name, placeholder: 'Name' %>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <%= f.email_field :email, placeholder: 'Email' %>
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <%= f.password_field :password, placeholder: 'password' %>
+      </div>
+      
+      <%= f.submit 'Create School', class:"ui button" %>
+    <% end %>
+</div>

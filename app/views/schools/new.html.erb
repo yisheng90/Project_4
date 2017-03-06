@@ -1,0 +1,22 @@
+<h1>Schools#new</h1>
+<div class='ui grid three column'>
+  <div class='column'></div>
+  <div class='ui form column'>
+    <%= form_for @school, class:'loading', url:create_school_path(@school), html: { method: :post } do |f| %>
+      <div class="field">
+        <label>Name</label>
+        <%= f.text_field :name, placeholder: 'Name' %>
+      </div>
+
+      <div class="field">
+        <label>Institution Level</label>
+        <%= f.text_field :school_type, placeholder: 'Type' %>
+      </div>
+
+      <div class="field">
+        <label>Principal</label>
+        <%= f.email_field :principal, placeholder: 'Principal' %>
+      </div>
+      <%= f.submit 'Create School', class:"ui button" %>
+    <% end %>
+</div>

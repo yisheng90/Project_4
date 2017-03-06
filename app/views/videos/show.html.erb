@@ -1,0 +1,7 @@
+<h1>Videos#show</h1>
+<p>Find me in app/views/videos/show.html.erb</p>
+
+
+<%= image_tag attachment_url(@video, :file, :fill, 300, 300, format: "jpg") %>
+
+<%= video_tag attachment_url(@video, :file), :size => "320x240", :controls => true %>

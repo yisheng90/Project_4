@@ -1,0 +1,44 @@
+<div class='ui grid'>
+  <div class='row'>
+    <div class='four wide column'>
+      <h1><%= @teacher.name %></h1>
+      <p>Secondary</p>
+      <hr />
+      <div class="ui items">
+        <div class='item'>
+          <h5>Video</h5>
+        </div>
+        <div class='item'>
+          <h5>Video</h5>
+        </div>
+        <div class='item'>
+          <%= link_to 'My Courses' %>
+        </div>
+        <div class='item'>
+          <%= link_to 'New Course', new_course_path(@course) %>
+        </div>
+      </div>
+    </div>
+
+    <div class='eight wide column'>
+      <h1>My Courses</h1>
+      <div class='ui cards'>
+        <% @teacher.courses.each do |course| %>
+          <div class="card">
+            <div class="content">
+              <div class="header"><%= course.title %></div>
+              <div class="meta">Category</div>
+              <div class="description">
+                <%= course.description %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='four wide column'>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+
+
+<div class='ui grid'>
+  <div class='row'>
+    <div class='five wide column'></div>
+      <h1>Login</h1>
+  </div>
+
+  <div class='row'>
+    <div class='five wide column'></div>
+      <div class='six wide column'>
+        <div class="ui center aligned basic segment">
+          <div class='ui form'>
+            <%= form_for :user do |f| %>
+              <div class='field'>
+                <label>Email</label>
+                <%= f.email_field :email, placeholder: "Enter your email" %>
+              </div>
+
+              <div class='field'>
+                <label>Password</label>
+                <%= f.password_field :password, placeholder: "Enter your password" %>
+              </div>
+
+              <%= f.submit "Login", class:'ui blue submit button' %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

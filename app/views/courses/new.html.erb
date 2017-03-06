@@ -1,0 +1,25 @@
+<h1>Courses#new</h1>
+<p>Find me in app/views/courses/new.html.erb</p>
+
+<div class='ui grid three column'>
+  <div class='column'></div>
+  <div class='ui form column'>
+    <%= form_for @course, class:'loading', url:courses_path(@course), html: { method: :post } do |f| %>
+      <div class="field">
+        <label>Title</label>
+        <%= f.text_field :title, placeholder: 'Title' %>
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <%= f.text_field :description, placeholder: 'Description' %>
+      </div>
+
+      <div class="field">
+        <label>Grade</label>
+        <%= f.text_field :grade_id, placeholder: 'Grade' %>
+      </div>
+
+
+      <%= f.submit 'Add Teacher', class:"ui button" %>
+    <% end %>
+</div>

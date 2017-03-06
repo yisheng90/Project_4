@@ -1,0 +1,18 @@
+<% if is_teacher? %>
+<div class="item">
+  <%= link_to "My Profile", my_dashboard_path(current_user) %>
+</div>
+<% elsif is_admin? %>
+<div class="item">
+  <%= link_to "My Profile", admin_dashboard_path %>
+</div>
+
+<% end %>
+
+<div class="item">
+  <%= link_to "My Messages" %>
+</div>
+<div class='divider'></div>
+<div class="item">
+  <%= link_to "Logout", logout_path,  method: :delete %>
+</div>
