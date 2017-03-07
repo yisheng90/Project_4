@@ -1,5 +1,10 @@
 <h1>Videos#index</h1>
 <p>Find me in app/views/videos/index.html.erb</p>
 <% @videos.each do |video| %>
-  <h1><%= video.file_id %></h1>
+
+  <video width="400" height='200' controls>
+  <source src="<%= video.video_url %>" >
+
+  Your browser does not support HTML5 video.
+</video>
 <% end %>

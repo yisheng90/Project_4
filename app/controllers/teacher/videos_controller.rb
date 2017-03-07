@@ -14,7 +14,7 @@ class Teacher::VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video.params)
+    @video = Video.new(video_params)
 
     if @video.save
       redirect_to  root_path
@@ -26,6 +26,6 @@ class Teacher::VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:file)
+    params.require(:video).permit(:video)
   end
 end

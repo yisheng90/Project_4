@@ -31,10 +31,13 @@ gem 'bcrypt'
 gem 'react-rails'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
-gem 'refile', git: 'https://github.com/refile/refile', require: 'refile/rails'
-gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick'
-gem 'sinatra', '~> 2.0.0.rc1'
-gem 'refile-s3'
+gem "shrine"
+gem "aws-sdk", "~> 2.1"
+
+# gem 'refile', git: 'https://github.com/refile/refile', require: 'refile/rails'
+# gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick'
+# gem 'sinatra', '~> 2.0.0.rc1'
+# gem 'refile-s3'
 gem 'dotenv-rails', groups: [:development, :test]
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
