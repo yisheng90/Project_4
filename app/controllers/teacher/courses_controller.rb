@@ -8,6 +8,7 @@ class Teacher::CoursesController < Teacher::BaseController
 
   def new
     @course = Course.new
+    @grades = Grade.all
   end
 
 

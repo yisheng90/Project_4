@@ -3,6 +3,8 @@ class User < ApplicationRecord
   belongs_to :grade
   has_many :courses, foreign_key: :teacher_id
 
+  accepts_nested_attributes_for :grade
+
   validates :name,
   presence: true
 

@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  before_action :is_authenticated
+  
   def new
     @video = Video.new
   end

@@ -1,8 +1,7 @@
-<h1>Teacher::Courses#new</h1>
-<p>Find me in app/views/teacher/courses/new.html.erb</p>
-<div class='ui grid three column'>
+<%= render partial: 'teacher/partials/dashboard_side_bar' %>
+<div class='ui grid three wide column  centered grid'>
   <div class='column'></div>
-  <div class='ui form column'>
+  <div class='ui form'>
     <%= form_for @course, class:'loading', url:teacher_courses_path(@course), html: { method: :post } do |f| %>
       <div class="field">
         <label>Title</label>
@@ -15,7 +14,7 @@
 
       <div class="field">
         <label>Grade</label>
-        <%= f.text_field :grade_id, placeholder: 'Grade' %>
+        <%= f.collection_select :grade_id, @grades, :id, :grade%>
       </div>
 
 

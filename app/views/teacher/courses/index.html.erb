@@ -1,4 +1,4 @@
-<%= render partial: 'teacher/partials/dashboard_side_bar', locals: {teacher: @current_user} %>
+<%= render partial: 'teacher/partials/dashboard_side_bar' %>
 <div class='ui stackable twelve wide column grid'>
     <div class='cloumn'></div>
     <div class='one wide column'>
@@ -24,7 +24,7 @@
                 <%= course.grade.grade %>
               </div>
               <div class="description">
-                ADD DESCRIPTION TO THE MODEL
+                <%= course.description %>
               </div>
             </div>
             <div class="extra content">

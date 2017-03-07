@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   get 'students' => 'students#index'
   get 'students/new' => 'students#new'
   post 'students' => 'students#create'
@@ -26,12 +24,18 @@ delete 'logout' => 'sessions#destroy'
 root 'courses#index'
 resources :users
 resources :teachers
-resources :courses, only: [:index, :show]
-resources :videos
+resources :courses, only: [:index, :show] do
+  resources :videos, only: [:index, :show]
+end
+# resources :videos
 
 namespace :teacher do
   resource :dashboard, only: [:show]
   resources :courses
+end
+
+namespace :admin do
+  resources :users, except: [:show]
 end
 
 

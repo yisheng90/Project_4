@@ -36,15 +36,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 
-config.action_mailer.delivery_method = :smtp
-# SMTP settings for mailgun
-config.action_mailer.smtp_settings = {
-  address: "smtp.mailgun.org",
-  port: 587,
-  domain: ENV['domain'],
-  user_name: ENV['username'],
-  password: ENV['password']
-}
+
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for mailgun
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mailgun.org",
+    port: 587,
+    domain: ENV['domain'],
+    user_name: ENV['username'],
+    password: ENV['password']
+  }
 
   config.action_mailer.perform_caching = false
 

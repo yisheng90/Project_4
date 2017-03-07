@@ -4,6 +4,9 @@ class Teacher::BaseController < ApplicationController
   private
 
   def authorize_teacher!
-    return current_user.user_type === 'teacher' ?  true : false
+    unless current_user && current_user.user_type == 'teacher'
+      flash[:danger] = 'No Entry Permission'
+      redirect_to root_path
+    end
   end
 end
