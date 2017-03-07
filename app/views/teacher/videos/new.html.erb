@@ -1,8 +1,34 @@
 <%= render partial: 'teacher/partials/dashboard_side_bar' %>
 
+<div class='twelve wide column grid'>
+  <div class="ui breadcrumb">
+    <a class="section">Home</a>
+    <div class="divider"> / </div>
+    <a class="section">Store</a>
+    <div class="divider"> / </div>
+    <div class="active section">T-Shirt</div>
+  </div>
 
-<%= form_for @video,  url:teacher_course_videos_path(params[:course_id], @video), html: { method: :post } do |f| %>
-  <%= f.hidden_field :video, value: @video.cached_video_data %>
-  <%= f.file_field :video %>
-  <%= f.submit %>
-<% end %>
+
+<div class='five wide column centered grid'>
+  <div class='ui form'>
+    <%= form_for @video,  url:teacher_course_videos_path(params[:course_id], @video), html: { method: :post } do |f| %>
+      <div class='field'>
+        <label>Video</label>
+        <%= f.hidden_field :video, value: @video.cached_video_data %>
+        <%= f.file_field :video %>
+      </div>
+
+      <div class='field'>
+        <label>Title</label>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class='field'>
+        <label>Description</label>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+</div>
