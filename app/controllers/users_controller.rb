@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    render component: 'User', props: {user: @user}, tag:'span', class: 'user'
+  def edit
   end
 
   private

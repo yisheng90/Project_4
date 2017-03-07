@@ -5,8 +5,8 @@ default from: "project4wdi@gmail.com"
   #
   #   en.user_mailer.registration_confirmation.subject
   #
-  def registration_confirmation(teacher)
-    @greeting = "Hi"
+  def registration_confirmation(user)
+    @user = user
 
     mail to: "yisheng90@gmail.com", subject: "Success! You did it."
   end

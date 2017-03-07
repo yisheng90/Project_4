@@ -6,7 +6,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def create
@@ -22,6 +22,7 @@ class Admin::UsersController < Admin::BaseController
       render :new
     end
   end
+
 
   private
 

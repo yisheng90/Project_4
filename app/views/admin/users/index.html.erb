@@ -1,1 +1,45 @@
 <%= render partial: 'admin/partials/dashboard_side_bar' %>
+
+
+<div class='eleven wide column'>
+  <table class="ui compact celled definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Registration Date</th>
+      <th>E-mail address</th>
+      <th>User Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td><%= user.name %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.email %></td>
+      <td><%= user.user_type %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="4">
+        <%= link_to semantic_icon('user icon')+'Add User',new_admin_user_path(@user), class:"ui right floated small primary labeled icon button" %>
+        <div class="ui small button">
+          Approve
+        </div>
+        <div class="ui small  disabled button">
+          Approve All
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+</div>

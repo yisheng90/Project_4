@@ -76,7 +76,7 @@
         <div class="content">
           <div class="ui two buttons">
               <% if current_user %>
-                <%= link_to 'Start', course_path(@course), class:"ui green button" %>
+                <%= link_to 'Start', course_videos_path(@course), class:"ui green button" %>
               <% else %>
                 <%= link_to 'Login to View', login_path, class:"ui red button" %>
               <% end %>

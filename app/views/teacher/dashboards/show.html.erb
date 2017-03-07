@@ -2,24 +2,26 @@
   <div class='row'>
     <%= render partial: 'teacher/partials/dashboard_side_bar' %>
 
-    <div class="ui card five wide column">
-  <div class="image">
-    <img src="/images/avatar2/large/kristy.png">
-  </div>
-  <div class="content">
-    <a class="header">Kristy</a>
-    <div class="meta">
-      <span class="date">Joined in 2013</span>
+    <div class='ten wide column grid'>
+      <div class='ui form'>
+      <%= form_for @user, url:teacher_dashboard_path(@user), html: { method: :patch } do |f| %>
+        <div class='field'>
+          <label>Name</label>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class='field'>
+          <label>Password (leave it blank if you do not want to change.)</label>
+          <%= f.password_field :password , placeholder: '******' %>
+        </div>
+
+        <div class='field'>
+          <label>Date of Birth</label>
+          <%= f.date_field :dob %>
+        </div>
+
+        <%= f.submit 'Save', class:'ui green button' %>
+      <% end %>
     </div>
-    <div class="description">
-      Kristy is an art director living in New York.
-    </div>
   </div>
-  <div class="extra content">
-    <a>
-      <i class="user icon"></i>
-      22 Friends
-    </a>
-  </div>
-</div>
   </div>

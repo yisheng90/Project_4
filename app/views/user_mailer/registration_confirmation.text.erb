@@ -1,3 +1,5 @@
-User#registration_confirmation
+Hi <%= @user.name %>,
 
-<%= @greeting %>, find me in app/views/user_mailer/registration_confirmation.text.erb
+Welcome to ThisAPP! To confirm your registration click the URL below.
+
+<%= registration_confirmation_url(@user.registration_token) %>
