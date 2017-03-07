@@ -1,0 +1,59 @@
+<%= render partial: 'teacher/partials/dashboard_side_bar' %>
+<div class='ui stackable twelve wide column grid'>
+    <div class='cloumn'></div>
+    <div class='one wide column'>
+      <h1>Courses</h1>
+    </div>
+
+    <div class='row'>
+      <div class='column'></div>
+      <div class='ui stackable fourteen wide column'>
+
+      <% if @courses.size > 0 %>
+        <div class="ui stackable link cards three wide column centered align">
+          <% @courses.each do |course| %>
+            <div class="card">
+              <div class="image">
+                <img src="/images/avatar2/large/matthew.png">
+              </div>
+            <div class="content">
+              <div class="header">
+                <%= course.title %>
+              </div>
+              <div class="meta">
+                <%= course.grade.grade %>
+              </div>
+              <div class="description">
+                <%= course.description %>
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                <%= course.created_at %>
+              </span>
+              <span>
+                <i class="user icon"></i>
+                <%= course.teacher.name %>
+              </span>
+            </div>
+            <div class="extra content">
+              <div class="ui two buttons">
+                <% if current_user %>
+                  <%= link_to 'View Course', course_path(course), class:"ui basic green button" %>
+                <% else %>
+                  <%= link_to 'Login to View', login_path, class:"ui basic red button" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div>
+          We are sorry. No course available yet
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

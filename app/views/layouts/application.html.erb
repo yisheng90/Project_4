@@ -3,15 +3,14 @@
   <head>
     <title>Project4</title>
     <%= csrf_meta_tags %>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
-
   </head>
 
   <body>
+    <div class='ui grid'>
     <div class="ui top attached menu">
       <div class='ui item icon left'>
         <%= link_to 'School', root_path %>
@@ -31,6 +30,7 @@
     </div>
 
     <%= yield %>
+  </div>
 
     <script>
     $(document).ready(function() {

@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+Welcome to ThisAPP! To confirm your registration click the URL below.
+
+<%= registration_confirmation_url(@user.registration_token) %>

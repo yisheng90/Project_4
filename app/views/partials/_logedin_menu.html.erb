@@ -1,10 +1,10 @@
 <% if is_teacher? %>
 <div class="item">
-  <%= link_to "My Profile", my_dashboard_path(current_user) %>
+  <%= link_to "My Profile", teacher_dashboard_path(current_user) %>
 </div>
 <% elsif is_admin? %>
 <div class="item">
-  <%= link_to "My Profile", admin_dashboard_path %>
+  <%= link_to "My Profile", admin_users_path %>
 </div>
 
 <% end %>

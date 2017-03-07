@@ -12,33 +12,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    render component: 'User', props: {user: @user}, tag:'span', class: 'user'
+  def edit
   end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save!
-      flash.now[:success] = 'Please check you mail box and confirm email'
-      redirect_to login_path
-    else
-      flash.now[:error] = "Ooooppss, something went wrong!"
-      render :new
-    end
-  end
-
-  def update
-    @user.update(user_params)
-
-    if @user
-      render component: 'User', props: {user: @user}, tag:'span', class: 'user'
-    else
-      render 'edit'
-    end
-  end
-
-
 
   private
 

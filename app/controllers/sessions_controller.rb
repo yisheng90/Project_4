@@ -11,7 +11,9 @@ class SessionsController < ApplicationController
         cookies.signed[:user_id] = user.id
         flash.now[:success] = "Wlecome #{user.name}. You have logged in."
         if current_user.user_type == 'teacher'
-          redirect_to my_dashboard_path
+          redirect_to teacher_dashboard_path
+        elsif current_user.user_type == 'admin'
+          redirect_to admin_users_path
         else
         redirect_to root_path
         end

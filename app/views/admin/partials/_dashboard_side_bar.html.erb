@@ -1,0 +1,27 @@
+
+
+
+<div class='ui four wide column'>
+  <div class='row'>
+    <div class='column'>
+      <h1><%= @current_user.name %></h1>
+      <p>Secondary</p>
+      <hr />
+      </div>
+  </div>
+
+    <div class='ui one column centered grid '>
+      <div class='row black'>
+      <div class='ui items'>
+        <div class='item'>
+          <%= link_to semantic_icon('add user')+'Add User' , new_admin_user_path %>
+        </div>
+        <div class='item'>
+          <%= link_to semantic_icon('users')+'Users', admin_users_path %>
+        </div>
+        <div class='item'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class='ui three wide column centered grid '>
+  <div class='column'>
+     <div class='ui form'>
+       <%= form_for @user,  url:registration_confirmation_path(@user), html: { method: :patch } do |f| %>
+         <div class='field'>
+           <label>Set Up Your Password</label>
+          <%= f.password_field :password, placeholder: 'Password' %>
+         </div>
+
+         <%= f.submit 'Confirm',  class:'ui green button' %>
+       <% end %>
+     </div>
+  </div>
+</div>

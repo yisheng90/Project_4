@@ -1,28 +1,29 @@
-
-<div class='ui grid'>
-  <div class='three wide column'>
-  </div>
-    <div class='ten wide column'>
+<div class='ui stackable grid'>
+    <div class='cloumn'></div>
+    <div class='one wide column'>
       <h1>Courses</h1>
     </div>
-  <div class='row'>
-    <div class='three wide column'>
-    </div>
-    <div class='ten wide column'>
+
+    <div class='row'>
+      <div class='column'></div>
+      <div class='ui stackable fourteen wide column'>
+
       <% if @courses.size > 0 %>
-        <div class="ui link cards">
+        <div class="ui stackable link cards five wide column centered align">
           <% @courses.each do |course| %>
             <div class="card">
               <div class="image">
                 <img src="/images/avatar2/large/matthew.png">
               </div>
             <div class="content">
-              <div class="header"><%= course.title %></div>
+              <div class="header">
+                <%= course.title %>
+              </div>
               <div class="meta">
                 <%= course.grade.grade %>
               </div>
               <div class="description">
-                ADD DESCRIPTION TO THE MODEL
+                <%= course.description %>
               </div>
             </div>
             <div class="extra content">
@@ -53,4 +54,5 @@
       <% end %>
     </div>
   </div>
+
 </div>
