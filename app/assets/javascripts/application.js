@@ -18,5 +18,5 @@
 //= require components
 // Loads all Semantic javascripts
 //= require semantic-ui
-//= require refile
+
 //= require_tree .

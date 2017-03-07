@@ -1,3 +1,3 @@
-class Video < ApplicationRecord
-  attachment :file
+class Video < ActiveRecord::Base
+   include VideoUploader.attachment(:video)
 end

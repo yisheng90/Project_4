@@ -1,6 +1,8 @@
 <%= render partial: 'teacher/partials/dashboard_side_bar' %>
 
-<%= form_for @video, url:teacher_course_videos_path(params[:course_id], @video), html: { method: :post } do |form| %>
-  <%= form.attachment_field :file, direct: true %>
-  <%= form.submit %>
+
+<%= form_for @video,  url:teacher_course_videos_path(params[:course_id], @video), html: { method: :post } do |f| %>
+  <%= f.hidden_field :video, value: @video.cached_video_data %>
+  <%= f.file_field :video %>
+  <%= f.submit %>
 <% end %>
