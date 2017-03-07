@@ -1,27 +1,25 @@
-<div class='row course_header'>
-  <div class='column'></div>
-  <div class='five wide column '>
-    <div class="flowplayer" data-aspect-ratio="4:3">
-      <video >
-        <source type="video/mp4"
-          src="<%= @videos[0].video_url%>">
-      </video>
-    </div>
+<div class='ui grid'>
+  <div class='row course_header'>
+    <div class='column'></div>
+    <div class='five wide column '>
+      <div class="flowplayer" data-aspect-ratio="4:3">
+        <video >
+          <source type="video/mp4"
+            src="<%= @videos[0].video_url%>">
+        </video>
+      </div>
 
-  </div>
-  <div class='five wide column'>
-    <div class='ui cards'>
-      <% @videos[1..@videos.size-1].each do |video| %>
-        <div class='ui card'>
-          <h1><%= video.title %></h1>
-        </div>
-      <% end %>
+    </div>
+    <div class='five wide column'>
+      <div class='ui cards'>
+        <% @videos[1..@videos.size-1].each do |video| %>
+          <div class='ui card'>
+            <h1><%= video.title %></h1>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="ui three item menu">
-  <a class="item">Editorials</a>
-  <a class="item active">Reviews</a>
-  <a class="item">Upcoming Events</a>
-</div>
+<%= react_component('App', {}, {prerender: false}) %>
