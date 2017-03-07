@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :is_authenticated
 
   def index
-    @videos = Video.all
+    @videos = Video.where(course_id: params[:course_id])
   end
 
   def show
