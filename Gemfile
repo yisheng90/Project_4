@@ -28,13 +28,13 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
-gem "react_on_rails", "~> 6"
+gem 'react-rails'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem "shrine"
 gem "aws-sdk", "~> 2.1"
 gem 'videojs_rails'
-
+gem 'react-router-rails', '~>0.13.3.2'
 # gem 'refile', git: 'https://github.com/refile/refile', require: 'refile/rails'
 # gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick'
 # gem 'sinatra', '~> 2.0.0.rc1'
