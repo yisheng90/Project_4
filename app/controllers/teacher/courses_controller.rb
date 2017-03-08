@@ -1,10 +1,9 @@
 class Teacher::CoursesController < Teacher::BaseController
+  before_action :set_course, only: [:edit, :update, :destroy]
   def index
     @courses = Course.where(teacher_id: current_user.id)
   end
 
-  def show
-  end
 
   def new
     @course = Course.new
@@ -15,10 +14,11 @@ class Teacher::CoursesController < Teacher::BaseController
   def create
     @course = Course.new(course_params)
     @course.teacher = current_user
+    @grades = Grade.all
 
     if @course.save!
       flash[:success] = 'Successfully set up course'
-      redirect_to my_dashboard_path
+      redirect_to new_teacher_course_video_path(@course)
     else
       flash[:danger] = 'Something wnet wrong'
       render 'new'
@@ -27,10 +27,12 @@ class Teacher::CoursesController < Teacher::BaseController
   end
 
   def edit
+    @grades = Grade.all
   end
 
   def update
     @course.update(course_params)
+    @grades = Grade.all
 
     if @course.save!
       flash[:success] = 'Successfully set up course'
@@ -53,7 +55,11 @@ class Teacher::CoursesController < Teacher::BaseController
 
   private
 
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
   def course_params
-    params.require(:course).permit(:title, :description, :grade)
+    params.require(:course).permit(:title, :description, :grade_id)
   end
 end

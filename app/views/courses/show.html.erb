@@ -1,67 +1,33 @@
-
-
-
-<div class='row course_header'>
-  <div class='column'></div>
-  <div class='ten wide column'>
-    <h1><%= @course.title %></h1>
-    <p> Created by: <%= @course.teacher.name %></p>
-    <p> Updated at: <%= @course.updated_at %> </p>
-  </div>
-</div>
-<div class='row'>
-  <div class='column'>
-  </div>
-  <div class='ten wide column'>
-    <h1>Description</h1>
-    <br>
-    <p><%= @course.description %></p>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='column'>
-  </div>
-  <div class='ten wide column'>
-    <h1>Courses By <%= @course.teacher.name %></h1>
-    <br>
-    <div class='ui cards stackable four wide column'>
-    <% @course.teacher.courses[0...4].each do |course| %>
-    <div class="card">
-      <div class="image">
-        <img src="/images/avatar2/large/matthew.png">
-      </div>
-    <div class="content">
-      <div class="header">
-        <%= course.title %>
-      </div>
-      <div class="meta">
-        <%= course.grade.grade %>
-      </div>
-      <div class="description">
-        ADD DESCRIPTION TO THE MODEL
-      </div>
+<div class='ui grid'>
+  <div class='row course_header'>
+    <div class='column'></div>
+    <div class='ten wide column'>
+      <h1><%= @course.title %></h1>
+      <p> Created by: <%= @course.teacher.name %></p>
+      <p> Updated at: <%= @course.updated_at %> </p>
     </div>
-      <div class="extra content">
-        <span class="right floated">
-          <%= course.created_at %>
-        </span>
-        <span>
-          <i class="user icon"></i>
-            <%= course.teacher.name %>
-          </span>
-        </div>
-        <div class="extra content">
-          <div class="ui two buttons">
-              <% if current_user %>
-                <%= link_to 'View Course', course_path(course), class:"ui basic green button" %>
-              <% else %>
-                <%= link_to 'Login to View', login_path, class:"ui basic red button" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  </div>
+  <div class='row'>
+    <div class='column'>
+    </div>
+    <div class='ten wide column'>
+      <h1>Description</h1>
+      <br>
+      <p><%= @course.description %></p>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='column'>
+    </div>
+    <div class='ten wide column'>
+      <h1>Courses By <%= @course.teacher.name %></h1>
+      <br>
+      <div class='ui cards stackable three wide column'>
+      <% @course.teacher.courses[0...6].each do |course| %>
+        <%= render partial: 'partials/courseCard', locals: {course: course} %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -71,7 +37,7 @@
     <div class='four wide column'>
       <div class='ui card'>
         <div class="image">
-          <img src="/images/avatar2/large/matthew.png">
+            <%= image_tag src='image.png'%>
         </div>
         <div class="content">
           <div class="ui two buttons">

@@ -27,7 +27,6 @@ class Answer extends React.Component {
     })
   }
   handleSubmitAnswer (e) {
-    alert('submitted')
     let that = this
     console.log('that', that)
     console.log('this', this)
@@ -41,7 +40,6 @@ class Answer extends React.Component {
       },
       url: '/courses/' + that.props.question.course_id + '/questions/' + that.props.question.id + '/answers',
       success: (res) => {
-        alert(res)
         let newList = this.state.answers
         newList.push(res.answer)
         let userList = this.state.users

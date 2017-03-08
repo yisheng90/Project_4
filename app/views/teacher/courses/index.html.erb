@@ -1,59 +1,65 @@
-<%= render partial: 'teacher/partials/dashboard_side_bar' %>
-<div class='ui stackable twelve wide column grid'>
-    <div class='cloumn'></div>
-    <div class='one wide column'>
-      <h1>Courses</h1>
-    </div>
+<div class='ui grid'>
+  <div class='column'></div>
+    <%= render partial: 'teacher/partials/dashboard_side_bar' %>
 
-    <div class='row'>
-      <div class='column'></div>
-      <div class='ui stackable fourteen wide column'>
+    <div class='ten wide column'>
+      <br>
+      <div class='ui breadcrumb row'>
+          <%= link_to 'Profile', teacher_dashboard_path(current_user), class:'section' %>
+          <span class='divider'>/</span>
+          <div class='active section'>Courses</div>
+      </div>
 
-      <% if @courses.size > 0 %>
-        <div class="ui stackable link cards three wide column centered align">
-          <% @courses.each do |course| %>
-            <div class="card">
-              <div class="image">
-                <img src="/images/avatar2/large/matthew.png">
-              </div>
-            <div class="content">
-              <div class="header">
-                <%= course.title %>
-              </div>
-              <div class="meta">
-                <%= course.grade.grade %>
-              </div>
-              <div class="description">
-                <%= course.description %>
-              </div>
-            </div>
-            <div class="extra content">
-              <span class="right floated">
-                <%= course.created_at %>
-              </span>
-              <span>
-                <i class="user icon"></i>
-                <%= course.teacher.name %>
-              </span>
-            </div>
-            <div class="extra content">
-              <div class="ui two buttons">
-                <% if current_user %>
-                  <%= link_to 'View Course', course_path(course), class:"ui basic green button" %>
+      <table class="ui compact celled definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Name</th>
+      <th>Grade</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @courses.size > 0 %>
+      <% @courses.each do |course| %>
+        <tr>
+          <td class="collapsing">
+            <div class="ui fitted slider checkbox">
+                <% if course.status === true %>
+                  <input type="checkbox" checked> <label></label>
                 <% else %>
-                  <%= link_to 'Login to View', login_path, class:"ui basic red button" %>
-                <% end %>
-              </div>
+                <input type="checkbox"> <label></label>
+                    <% end %>
             </div>
-          </div>
+
+          </td>
+          <td><%= course.title %></td>
+          <td><%= course.grade.grade %></td>
+          <td>CATEGORY</td>
+          <% if course.status === true %>
+            <td>Published</td>
+          <% else %>
+            <td>Not Publish</td>
           <% end %>
-        </div>
-      <% else %>
-        <div>
-          We are sorry. No course available yet
-        </div>
+          <td><%= link_to semantic_icon('edit'), edit_teacher_course_path(course) %></td>
+          <td><%= link_to semantic_icon('trash'), teacher_course_path(course), method: :delete %></td>
+        </tr>
       <% end %>
+    <% end %>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="6">
+        <%= link_to semantic_icon('file icon')+'Add Course',  new_teacher_course_path(@course), class:"ui right floated small primary labeled icon button"%>
+      </th>
+    </tr>
+  </tfoot>
+</table>
     </div>
-  </div>
+
 
 </div>

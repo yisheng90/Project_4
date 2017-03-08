@@ -19,8 +19,8 @@ end
 
 namespace :teacher do
   resource :dashboard, only: [:show, :update]
-  resources :courses do
-    resources :videos, only: [:new, :edit, :create, :destroy]
+  resources :courses, except:[:show] do
+    resources :videos
   end
 end
 

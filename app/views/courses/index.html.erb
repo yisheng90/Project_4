@@ -1,7 +1,7 @@
 <div class='ui stackable grid'>
     <div class='cloumn'></div>
-    <div class='one wide column'>
-      <h1>Courses</h1>
+    <div class='five wide column'>
+      <h1>Latest Courses</h1>
     </div>
 
     <div class='row'>
@@ -9,42 +9,9 @@
       <div class='ui stackable fourteen wide column'>
 
       <% if @courses.size > 0 %>
-        <div class="ui stackable link cards five wide column centered align">
+        <div class="ui stackable link cards four wide column centered align">
           <% @courses.each do |course| %>
-            <div class="card">
-              <div class="image">
-                <img src="/images/avatar2/large/matthew.png">
-              </div>
-            <div class="content">
-              <div class="header">
-                <%= course.title %>
-              </div>
-              <div class="meta">
-                <%= course.grade.grade %>
-              </div>
-              <div class="description">
-                <%= course.description %>
-              </div>
-            </div>
-            <div class="extra content">
-              <span class="right floated">
-                <%= course.created_at %>
-              </span>
-              <span>
-                <i class="user icon"></i>
-                <%= course.teacher.name %>
-              </span>
-            </div>
-            <div class="extra content">
-              <div class="ui two buttons">
-                <% if current_user %>
-                  <%= link_to 'View Course', course_path(course), class:"ui basic green button" %>
-                <% else %>
-                  <%= link_to 'Login to View', login_path, class:"ui basic red button" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+            <%= render partial: 'partials/courseCard', locals: {course: course} %>
           <% end %>
         </div>
       <% else %>

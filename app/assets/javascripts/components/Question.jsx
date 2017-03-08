@@ -9,14 +9,9 @@ class Question extends React.Component {
     }
   }
   handleChange (e) {
-    let saveQuestion = this.state.saveQuestion
-    saveQuestion.question = e.target.value
-
     this.setState({
-      filteredWord: e.target.value,
-      saveQuestion: saveQuestion
+      filteredWord: e.target.value
     })
-    console.log('this', this.state.filteredWord)
   }
   handleSubmit (e, prompt) {
     let that = this
@@ -27,7 +22,6 @@ class Question extends React.Component {
       },
       url: '/courses/' + prompt.course_id + '/questions',
       success: (res) => {
-        alert(res)
         let newList = this.state.questions
         newList.push(res)
         that.setState({
@@ -51,7 +45,7 @@ class Question extends React.Component {
     let questionData = { question: this.state.filteredWord, course_id: this.props.course.id, user_id: this.props.user.id}
     console.log(questionData)
 
-    if (this.state.filteredWord !== '') {
+    if (this.state.filteredWord) {
       filteredQuestions = this.state.questions.filter((question) => {
         return question.question.includes(this.state.filteredWord)
       })
