@@ -15,7 +15,6 @@ class TeacherDashboard extends React.Component {
     }
   }
   handleClick (e, prompt) {
-    alert(prompt)
     this.setState({
       current_tab: prompt
     })
@@ -42,8 +41,6 @@ class TeacherDashboard extends React.Component {
     })
   }
   handleSubmit () {
-    alert('submitted')
-    alert('haha')
     let that = this
 
     $.ajax({
@@ -68,7 +65,6 @@ class TeacherDashboard extends React.Component {
     })
   }
   handleProfileUpdate (e, prompt) {
-    alert(prompt)
     let that = this
 
     $.ajax({

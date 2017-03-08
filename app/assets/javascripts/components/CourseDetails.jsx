@@ -9,7 +9,6 @@ class CourseDetails extends React.Component {
     }
   }
   handleTabClick (e, tab) {
-    alert(tab)
     this.setState({
       current_tab: tab
     })

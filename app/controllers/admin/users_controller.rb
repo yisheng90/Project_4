@@ -14,6 +14,7 @@ class Admin::UsersController < Admin::BaseController
     @user.password = '1234567'
 
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver_now
       flash[:success] = 'You have created an user.'
       redirect_to root_path
     else

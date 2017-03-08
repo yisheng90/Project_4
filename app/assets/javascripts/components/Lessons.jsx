@@ -8,13 +8,10 @@ class Lessons extends React.Component {
     }
   }
   componentDidMount () {
-    console.log('component', this.props.course.id)
-
     $.ajax({
       method: 'GET',
       url: '/courses/' + this.props.course.id + '/videos',
       success: (res) => {
-        alert(res)
         this.setState({
           videos: res.videos,
           isLoading: false,
@@ -24,7 +21,7 @@ class Lessons extends React.Component {
     })
   }
   render () {
-    let showItem = <Video videos={this.state.videos} teacher={this.state.teacher}/>
+    let showItem = <Video videos={this.state.videos} teacher={this.state.teacher} />
     if (this.state.isLoading === true) {
       showItem = () => {
         return (

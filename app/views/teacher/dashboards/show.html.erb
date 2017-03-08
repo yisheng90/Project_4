@@ -1,8 +1,13 @@
-
-  <div class='row'>
+<div class='ui grid'>
+  <div class='column'></div>
     <%= render partial: 'teacher/partials/dashboard_side_bar' %>
+        <div class='ui ten wide column grid'>
 
-    <div class='ten wide column grid'>
+    <div class='ui breadcrumb row'>
+        <div class='active section'>Profile</div>
+    </div>
+
+  
       <div class='ui form'>
       <%= form_for @user, url:teacher_dashboard_path(@user), html: { method: :patch } do |f| %>
         <div class='field'>
@@ -21,7 +26,7 @@
         </div>
 
         <%= f.submit 'Save', class:'ui green button' %>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
   </div>
-  </div>
+</div>

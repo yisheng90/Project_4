@@ -7,8 +7,10 @@ class CoursesController < ApplicationController
   end
 
   def show
+    if @course.status === false
+      redirect_to root_path
+    end
   end
-
 
   private
 
