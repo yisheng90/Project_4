@@ -12,7 +12,7 @@ resources :registration_confirmation, only: [:show, :update]
 resources :courses, only: [:index, :show] do
   resources :videos, only: [:index, :show]
   resources :questions do
-    resources :answers, only: [:create]
+    resources :answers, only: [:create, :index]
   end
 end
 # resources :videos

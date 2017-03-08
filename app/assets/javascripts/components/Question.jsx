@@ -5,11 +5,7 @@ class Question extends React.Component {
       questions: this.props.questions,
       filteredQuestions: this.props.questions,
       filteredWord: this.props.filteredWord,
-      saveQuestion: {
-        question: null,
-        course_id: this.props.course.id,
-        user_id: this.props.user.id
-      }
+      currentQuestion: null
     }
   }
   handleChange (e) {
@@ -41,6 +37,15 @@ class Question extends React.Component {
       }
     })
   }
+  handleShowAnswer (e, id) {
+    let change = id
+    if (this.state.currentQuestion === id) {
+      change = null
+    }
+    this.setState({
+      currentQuestion: change
+    })
+  }
   render () {
     let filteredQuestions = this.state.questions
     let questionData = { question: this.state.filteredWord, course_id: this.props.course.id, user_id: this.props.user.id}
@@ -57,22 +62,15 @@ class Question extends React.Component {
     if (this.state.questions.length > 0) {
       showQuestion = filteredQuestions.map((question) => {
         return (
-
-          <div className='small comment'>
-            <a className='avatar'>
-              <img />
-            </a>
-            <div className='content'>
-              <a className='author'>{question.user_id}</a>
-              <div className='metadata'>
-                <span className='date'>Today at 5:42PM</span>
-              </div>
-              <div className='text'>
+          <div className='sixteen wide column'>
+            <div className='ui fluid message'>
+              <div className='header' onClick={(e, id) => this.handleShowAnswer(e, question.id)}>
                 {question.question}
               </div>
-              <div className='actions'>
-                <a className='reply'>Reply</a>
-              </div>
+
+              {this.state.currentQuestion === question.id &&
+              <Answer question={question} />
+            }
             </div>
           </div>
 
@@ -102,13 +100,9 @@ class Question extends React.Component {
         </div>
 
         <div className='row'>
-          <div className='ui sixteen wide column'>
-            <div className='ui fluid threaded comments'>
-              {showQuestion}
-            </div>
-          </div>
-        </div>
 
+          {showQuestion}
+        </div>
       </div>
     )
   }
