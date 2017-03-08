@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show]
 
   def index
-    @courses = Course.all
+    @courses = Course.where(status: true)
   end
 
   def show

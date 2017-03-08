@@ -1,7 +1,20 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<div class='ui grid'>
+  <div class='row course_header'>
+    <div class='column'></div>
+    <div class='five wide column '>
+      <div class="flowplayer" data-aspect-ratio="4:3">
+        <video >
+          <source type="video/mp4"
+            src="<%= @video.video_url%>">
+        </video>
+      </div>
+
+    </div>
+    <h1>
+      <%= @video.title %>
+    </h1>
+  </div>
+</div>
 
 
-<%= image_tag attachment_url(@video, :file, :fill, 300, 300, format: "jpg") %>
-
-<%= video_tag attachment_url(@video, :file), :size => "320x240", :controls => true %>
+<%= react_component('CourseDetails', {video: @video, course: @video.course, questions: @video.course.questions, user: current_user}, {prerender: true}) %>

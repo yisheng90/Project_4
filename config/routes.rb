@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'registration_confirmation/show'
-
-  # get 'students' => 'students#index'
-  # get 'students/new' => 'students#new'
-  # post 'students' => 'students#create'
-  # get 'students/:id' => 'students#show'
-  # get 'admin_dashboard' => 'schools#show'
-
-
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
 delete 'logout' => 'sessions#destroy'
@@ -21,6 +11,9 @@ root 'courses#index'
 resources :registration_confirmation, only: [:show, :update]
 resources :courses, only: [:index, :show] do
   resources :videos, only: [:index, :show]
+  resources :questions do
+    resources :answers, only: [:create, :index]
+  end
 end
 # resources :videos
 

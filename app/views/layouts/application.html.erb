@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+      <script src="//releases.flowplayer.org/7.0.2/flowplayer.min.js"></script>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
     <link rel="stylesheet" href="//releases.flowplayer.org/7.0.2/skin/minimalist.css">
-    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
     <script src="//releases.flowplayer.org/7.0.2/flowplayer.min.js"></script>
     <link rel="stylesheet" href="//releases.flowplayer.org/7.0.2/skin/skin.css">
   </head>
@@ -34,16 +34,15 @@
         </div>
       </div>
     </div>
-
-    <%= yield %>
   </div>
+    <%= yield %>
+  
 
-    <script>
-    $(document).ready(function() {
-        $('.ui.dropdown')
-      .dropdown()
 
- });
- </script>
+  <script>
+  $(document).ready(function() {
+  $('.ui.dropdown').dropdown();
+});
+</script>
   </body>
 </html>
