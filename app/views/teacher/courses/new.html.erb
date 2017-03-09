@@ -1,7 +1,10 @@
-<div class='ui grid'>
-  <div class='column'></div>
-    <%= render partial: 'teacher/partials/dashboard_side_bar' %>
-      <div class='ui ten wide column grid'>
+<%= react_component 'DashboardSidebar', {current_tab: 'profile'} %>
+
+
+<div class='ui container'>
+  <br />
+  <br />
+  <br />
         <div class='ui form'>
           <h4 class='ui dividing header'>Course Information</h4>
             <%= form_for @course, class:'loading', url:teacher_courses_path(@course), html: { method: :post } do |f| %>
@@ -26,7 +29,7 @@
               </div>
 
               <div class='field'>
-                <%= f.submit 'Add Course', class:'ui button' %>
+                <%= f.submit 'Add Course', class:'ui right floated small green icon button' %>
               </div>
             <% end %>
             </div>

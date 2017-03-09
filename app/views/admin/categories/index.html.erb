@@ -1,0 +1,5 @@
+<%= react_component 'AdminDashboardSidebar', {
+  categories: @categories.includes(:courses).map { |category|
+    category.as_json.merge(courses: category.courses.as_json ) },
+    users: [],
+    current_page: 'cat'} %>

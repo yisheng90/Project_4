@@ -1,20 +1,24 @@
-<div class='ui grid'>
-  <div class='row course_header'>
-    <div class='column'></div>
-    <div class='five wide column '>
-      <div class="flowplayer" data-aspect-ratio="4:3">
-        <video >
-          <source type="video/mp4"
-            src="<%= @video.video_url%>">
-        </video>
-      </div>
-
+<br>
+<div class='ui stackable  grid course_header'>
+  <div class='column'></div>
+  <div class='eight wide column'>
+    <div class="flowplayer" data-aspect-ratio="4:3">
+      <video >
+        <source type="video/mp4"
+          src="<%= @video.video_url%>">
+      </video>
     </div>
-    <h1>
-      <%= @video.title %>
-    </h1>
   </div>
+    <div class='six wide column'>
+      <div class='row'>
+      <h2>  <%= @video.title %></h2>
+      </div>
+      <div class='row'>
+        <%= @video.description %>
+      </div>
+    </div>
 </div>
+
 
 
 <%= react_component('CourseDetails', {video: @video, course: @video.course, questions: @video.course.questions, user: current_user}, {prerender: true}) %>

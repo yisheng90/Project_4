@@ -59,12 +59,10 @@ class Answer extends React.Component {
         return (
           <div className='ui teal message'>
             <div className='content'>
-              <a className='author lift aligned'>{user.name}</a>
-              <div className='metadata'>
-                <span className='date'>Today at 5:42PM</span>
-              </div>
+              <a className='author lift aligned'>{answer.answer}</a>
+            
               <div className='text'>
-                {answer.answer}
+                {user.name}
               </div>
             </div>
           </div>

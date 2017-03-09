@@ -1,10 +1,11 @@
+<br>
 <div class='ui grid'>
   <div class='row course_header'>
     <div class='column'></div>
     <div class='ten wide column'>
       <h1><%= @course.title %></h1>
       <p> Created by: <%= @course.teacher.name %></p>
-      <p> Updated at: <%= @course.updated_at %> </p>
+      <p> Updated at: <%= @course.updated_at.to_date %> </p>
     </div>
   </div>
   <div class='row'>
@@ -13,7 +14,7 @@
     <div class='ten wide column'>
       <h1>Description</h1>
       <br>
-      <p><%= @course.description %></p>
+      <p class='course_description'><%= @course.description %></p>
     </div>
   </div>
 
@@ -25,7 +26,9 @@
       <br>
       <div class='ui cards stackable three wide column'>
       <% @course.teacher.courses[0...6].each do |course| %>
+      <% if course.status === true %>
         <%= render partial: 'partials/courseCard', locals: {course: course} %>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -42,7 +45,11 @@
         <div class="content">
           <div class="ui two buttons">
               <% if current_user %>
+                <% if @course.videos.size > 0 %>
                 <%= link_to 'Start', course_video_path(@course, @course.videos[0]), class:"ui green button" %>
+                <% else %>
+                  <%= link_to 'No Lessons', root_path, class:"ui red colored button" %>
+                <% end %>
               <% else %>
                 <%= link_to 'Login to View', login_path, class:"ui red button" %>
               <% end %>

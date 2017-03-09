@@ -1,4 +1,4 @@
-class Question extends React.Component {
+  class Question extends React.Component {
   constructor (props) {
     super(props)
     this.state = {

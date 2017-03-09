@@ -1,7 +1,9 @@
-<div class='ui grid'>
-  <div class='column'></div>
-    <%= render partial: 'teacher/partials/dashboard_side_bar' %>
-    <div className='ten wide column'>
-      <%= react_component 'TeacherCourseIndex', {courses: @courses} %>
-    </div>
+<%= react_component 'DashboardSidebar', {current_tab: 'profile'} %>
+
+
+<div class='ui container'>
+  <br>
+  <br>
+  <br>
+  <%= react_component 'TeacherCourseIndex', {courses: @courses} %>
 </div>
