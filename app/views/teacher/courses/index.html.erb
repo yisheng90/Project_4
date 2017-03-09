@@ -1,65 +1,7 @@
 <div class='ui grid'>
   <div class='column'></div>
     <%= render partial: 'teacher/partials/dashboard_side_bar' %>
-
-    <div class='ten wide column'>
-      <br>
-      <div class='ui breadcrumb row'>
-          <%= link_to 'Profile', teacher_dashboard_path(current_user), class:'section' %>
-          <span class='divider'>/</span>
-          <div class='active section'>Courses</div>
-      </div>
-
-      <table class="ui compact celled definition table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Course Name</th>
-      <th>Grade</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @courses.size > 0 %>
-      <% @courses.each do |course| %>
-        <tr>
-          <td class="collapsing">
-            <div class="ui fitted slider checkbox">
-                <% if course.status === true %>
-                  <input type="checkbox" checked> <label></label>
-                <% else %>
-                <input type="checkbox"> <label></label>
-                    <% end %>
-            </div>
-
-          </td>
-          <td><%= course.title %></td>
-          <td><%= course.grade.grade %></td>
-          <td>CATEGORY</td>
-          <% if course.status === true %>
-            <td>Published</td>
-          <% else %>
-            <td>Not Publish</td>
-          <% end %>
-          <td><%= link_to semantic_icon('edit'), edit_teacher_course_path(course) %></td>
-          <td><%= link_to semantic_icon('trash'), teacher_course_path(course), method: :delete %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-  <tfoot class="full-width">
-    <tr>
-      <th></th>
-      <th colspan="6">
-        <%= link_to semantic_icon('file icon')+'Add Course',  new_teacher_course_path(@course), class:"ui right floated small primary labeled icon button"%>
-      </th>
-    </tr>
-  </tfoot>
-</table>
+    <div className='ten wide column'>
+      <%= react_component 'TeacherCourseIndex', {courses: @courses} %>
     </div>
-
-
 </div>
