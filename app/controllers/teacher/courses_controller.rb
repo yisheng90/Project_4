@@ -35,11 +35,30 @@ class Teacher::CoursesController < Teacher::BaseController
 
     if @course.save!
       flash[:success] = 'Successfully set up course'
-      render json: @course.as_json.merge({grade: @course.grade.as_json, teacher: @course.teacher.as_json})
+      respond_to do |format|
+      format.html {
+        redirect_to teacher_courses_path
+      }
+      format.json {
+        render json: @course.as_json.merge({grade: @course.grade.as_json, teacher: @course.teacher.as_json})
+      }
+    end
+
     else
       flash[:danger] = 'Something wnet wrong'
       render 'edit'
     end
+  end
+
+  def update_status
+    @course = Course.find(params[:course_id])
+    @course.update(course_params)
+
+    if @course.save!
+      flash[:success] = 'Updated course status'
+      render json: @course.as_json.merge({grade: @course.grade.as_json, teacher: @course.teacher.as_json})
+    end
+
   end
 
   def destroy

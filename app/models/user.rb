@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   before_create :set_registration_token
   belongs_to :grade
-  has_many :courses, foreign_key: :teacher_id
+  has_many :courses, foreign_key: :teacher_id , dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   accepts_nested_attributes_for :grade
 

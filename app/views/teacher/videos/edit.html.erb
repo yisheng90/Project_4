@@ -1,7 +1,10 @@
-<div class='ui grid'>
-  <div class='column'></div>
-    <%= render partial: 'teacher/partials/dashboard_side_bar' %>
-    <div class='ui ten wide column grid'>
+<%= react_component 'DashboardSidebar', {current_tab: 'profile'} %>
+
+
+    <div class='ui container'>
+      <br>
+      <br>
+      <br>
 
       <div class='ui breadcrumb row'>
           <%= link_to 'Profile', teacher_dashboard_path(current_user), class:'section' %>
@@ -10,6 +13,9 @@
           <span class='divider'>/</span>
           <div class='active section'>New Lesson</div>
       </div>
+      <br>
+      <br>
+
 
       <div class='ui form'>
         <h4 class='ui dividing header'>Lesson Information</h4>
@@ -31,10 +37,8 @@
             </div>
 
             <div class='field'>
-              <%= f.submit 'Add Lesson', class:'ui green button' %>
+              <%= f.submit 'Save', class:'ui right floated small green icon button' %>
             </div>
           <% end %>
           </div>
         </div>
-    </div>
-  </div>

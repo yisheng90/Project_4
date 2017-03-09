@@ -20,7 +20,7 @@ class TeacherCourseIndex extends React.Component {
           category_id: 1
         }
       },
-      url: '/teacher/courses/' + prompt.id,
+      url: '/teacher/courses/' + prompt.id + '/update_status',
       success: (res) => {
         let newList = this.state.courses
         let index = newList.indexOf(prompt)
@@ -70,13 +70,14 @@ class TeacherCourseIndex extends React.Component {
       )
     })
     return (
-      <div className='sixteen wide column'>
-        <br />
+      <div className='row'>
         <div className='ui breadcrumb row'>
           <a href={'/teacher/dashboard'} className='section'>Profile</a>
           <span className='divider'>/</span>
           <div className='active section'>Courses</div>
         </div>
+        <br />
+        <hr />
 
         <table className='ui compact celled definition table'>
           <thead>
@@ -97,9 +98,9 @@ class TeacherCourseIndex extends React.Component {
             <tr>
               <th />
               <th colSpan='6'>
-                <div className='i right floated small primary labeled icon button'>
-                  <a href='/teacher/courses/new'><i className='file icon' />Add Course</a>
-                </div>
+
+                <a href='/teacher/courses/new'className='ui right floated small primary labeled icon button' ><i className='file icon' />Add Course</a>
+
               </th>
             </tr>
           </tfoot>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 delete 'logout' => 'sessions#destroy'
 
 
+
 root 'courses#index'
 # resources :users
 # resources :teachers
@@ -20,12 +21,14 @@ end
 namespace :teacher do
   resource :dashboard, only: [:show, :update]
   resources :courses, except:[:show] do
+    patch 'update_status' => 'courses#update_status'
     resources :videos
   end
 end
 
 namespace :admin do
   resources :users, except: [:show]
+  resources :categories 
 end
 
 

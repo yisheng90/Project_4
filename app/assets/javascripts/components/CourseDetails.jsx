@@ -25,10 +25,9 @@ class CourseDetails extends React.Component {
     return (
       <div className='ui grid'>
         <div className='row'>
-          <div className='ui three item menu'>
+          <div className='ui two item menu'>
             <a className='item' onClick={(e, tab) => this.handleTabClick(e, 'QA')}>Q/A</a>
-            <a className='item active' onClick={(e, tab) => this.handleTabClick(e, 'lesson')} >Lessons</a>
-            <a className='item' onClick={(e, tab) => this.handleTabClick(e, 'Tab')} >Upcoming Events</a>
+            <a className='item' onClick={(e, tab) => this.handleTabClick(e, 'lesson')} >Lessons</a>
           </div>
         </div>
 

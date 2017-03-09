@@ -4,10 +4,9 @@ class Teacher::DashboardsController < Teacher::BaseController
   end
 
   def update
-    @user = User.update(user_params)
-
+    @user = current_user
+    @user.update(user_params)
     redirect_to teacher_dashboard_path
-
   end
 
   private

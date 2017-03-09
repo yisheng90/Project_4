@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:show, :edit, :destroy]
   def new
     @question = Question.new
   end
@@ -8,11 +9,11 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+
   end
 
   def edit
-    @question = Question.find(params[:id])
+
   end
 
   def create
@@ -25,7 +26,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question.delete
+  end
+
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
   def question_params
     params.require(:question).permit(:question, :course_id, :user_id)
