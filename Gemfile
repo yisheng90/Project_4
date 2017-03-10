@@ -34,7 +34,6 @@ gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem "shrine"
 gem "aws-sdk", "~> 2.1"
 gem 'videojs_rails'
-gem 'react-router-rails', '~>0.13.3.2'
 
 # gem 'refile', git: 'https://github.com/refile/refile', require: 'refile/rails'
 # gem 'refile-mini_magick', git: 'https://github.com/refile/refile-mini_magick'
