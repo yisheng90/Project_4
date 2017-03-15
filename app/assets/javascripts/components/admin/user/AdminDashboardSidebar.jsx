@@ -129,6 +129,7 @@ class AdminDashboardSidebar extends React.Component {
         { this.state.current_page === 'user' && <AdminUserIndex users={usersList} handleChangeUserStatus={this.handleChangeUserStatus.bind(this)} />}
         { this.state.current_page === 'new' && <NewUser users={usersList} grades={this.props.grades} user_type={this.props.user_type} />}
         { this.state.current_page === 'cat' && <CategoryIndex categories={this.props.categories} />}
+        { this.state.current_page === 'grades' && <GradeIndex grades={this.props.grades} />}
       </div>
 
     )

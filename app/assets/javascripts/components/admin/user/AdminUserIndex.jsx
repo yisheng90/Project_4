@@ -34,7 +34,7 @@ class AdminUserIndex extends React.Component {
             </div>
           </td>
           <td> {user.name} </td>
-          <td>{user.created_at}</td>
+          <td>{new Date(user.created_at).toDateString()}</td>
           <td>{user.email}</td>
           <td>{user.user_type}</td>
           {user.status === true && <td className='positive'>Active</td>}

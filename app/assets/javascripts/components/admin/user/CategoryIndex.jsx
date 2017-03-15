@@ -9,13 +9,12 @@ class CategoryIndex extends React.Component {
 
     }
   }
-  handleDelete(e, prompt) {
-    alert(this.state.newInput)
+  handleDelete (e, prompt) {
     let that = this
 
     $.ajax({
       method: 'DELETE',
-      url: '/admin/categories/'+prompt.id,
+      url: '/admin/categories/' + prompt.id,
       success: (res) => {
         let newList = this.state.categories
         let index = newList.indexOf(prompt)
@@ -27,10 +26,10 @@ class CategoryIndex extends React.Component {
     })
   }
   handleClick (e, prompt) {
-      this.setState({
-        editInput: prompt.category,
-        editElement: prompt
-      })
+    this.setState({
+      editInput: prompt.category,
+      editElement: prompt
+    })
   }
   handleCreateInputChange (e) {
     this.setState({
@@ -75,7 +74,7 @@ class CategoryIndex extends React.Component {
               <input name='category' value={this.state.editInput} onChange={() => this.handleEdit()} />
             </div>
             </td>}
-          <td onClick={(e, prompt)=>handleClick(e, cat)}>{cat.courses.length}</td>
+          <td onClick={(e, prompt) => handleClick(e, cat)}>{cat.courses.length}</td>
           <td><i className='trash icon' onClick={(e, prompt) => this.handleDelete(e, cat)} /></td>
         </tr>
       )

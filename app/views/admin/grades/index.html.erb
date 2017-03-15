@@ -1,0 +1,5 @@
+<%= react_component 'AdminDashboardSidebar', {
+  grades: @grades.includes(:courses).map { |grade|
+    grade.as_json.merge(courses: grade.courses.as_json ) },
+    users: [],
+    current_page: 'grades'} %>
