@@ -12,3 +12,6 @@ end
 ['sec_1', 'sec_2', 'sec_3', 'sec_4'].each do |grade|
   Grade.find_or_create_by(grade: grade)
 end
+
+
+User.create(name: 'YiSheng', user_type: 'admin', email: 'admin@admin.com', password: '1234567', grade_id: 1 )
