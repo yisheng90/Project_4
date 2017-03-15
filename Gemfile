@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
-gem 'react-rails'
+gem 'react-rails', '~> 1.10'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem "shrine"
