@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(user_params)
-    if user
+    if user && user.status
 
       if user.registration_confirmed
         session[:user_id] = user.id

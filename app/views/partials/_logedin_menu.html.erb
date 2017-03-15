@@ -1,3 +1,7 @@
+<div class="item">
+  <%= "Welcome " + current_user.name %>
+</div>
+
 <% if is_teacher? %>
 <div class="item">
   <%= link_to "My Profile", teacher_dashboard_path(current_user) %>

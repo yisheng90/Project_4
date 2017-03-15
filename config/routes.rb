@@ -28,7 +28,8 @@ end
 
 namespace :admin do
   resources :users, except: [:show]
-  resources :categories 
+  resources :categories
+  resources :grades
 end
 
 

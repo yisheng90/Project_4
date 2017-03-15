@@ -15,3 +15,38 @@
 .brand {
   color: white;
 }
+
+.ui.menu>.item:first-child.brand_title {
+  background-color: green;
+}
+
+.ui.menu .item>a:not(.ui), .ui.menu .item>p:only-child, .ui.menu .text.item>* {
+  color: white;
+}
+
+.ui.container.login_panel {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.brand_video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
