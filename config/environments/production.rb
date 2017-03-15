@@ -27,11 +27,12 @@ Rails.application.configure do
 
 
   config.react.variant = :production
-  config.react.jsx_transform_options = {
-  blacklist: ['spec.functionName', 'validation.react', 'strict'], # default options
-  optional: ["transformerName"],  # pass extra babel options
-  whitelist: ["useStrict"] # even more options
-}
+  config.react.addons = true
+  # config.react.jsx_transform_options = {
+  #   blacklist: ['spec.functionName', 'validation.react', 'strict'], # default options
+  #   optional: ["transformerName"],  # pass extra babel options
+  #   whitelist: ["useStrict"] # even more options
+  # }
 
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
